@@ -1,0 +1,22 @@
+{
+  "name": "multiplicationtable",
+  "version": "1.0.0",
+  "description": "generate multiplication table",
+  "main": "",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shmilycherish/Implement-A-Multiplication-Table.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shmilycherish/Implement-A-Multiplication-Table/issues"
+  },
+  "homepage": "https://github.com/shmilycherish/Implement-A-Multiplication-Table#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
