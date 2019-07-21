@@ -89,3 +89,5 @@ typings/
 
 #IDEA tool
 .idea/
+
+.DS_Store
