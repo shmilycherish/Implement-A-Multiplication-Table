@@ -1,4 +1,4 @@
-const {isValidStartEnd, isValidNumber, isValidMultiplicationPara} = require('../multiplication-table');
+const {isValidStartEnd, isValidNumber, isValidMultiplicationPara, generateMultiplicationTable} = require('../multiplication-table');
 
 describe('test start should less than or equal end', () => {
     it('should return true when start less than end', () => {
@@ -44,11 +44,11 @@ describe('test start and end are valid', () => {
     });
 
     it('should return false when start is -1, out of range', () => {
-        expect(isValidMultiplicationPara(-1, 4)).toBeTruthy();
+        expect(isValidMultiplicationPara(-1, 4)).toBeFalsy();
     });
 
     it('should return false when end is 1002, out of range', () => {
-        expect(isValidMultiplicationPara(2, 1002)).toBeTruthy();
+        expect(isValidMultiplicationPara(2, 1002)).toBeFalsy();
     });
 
     it('should return false when start is 4 and end is 2, misorder', () => {
@@ -56,4 +56,16 @@ describe('test start and end are valid', () => {
     });
 });
 
+describe('test generateMultiplicationTable', () => {
+    it('should return 1 line when start is 2 and end is 2', () => {
+        expect(generateMultiplicationTable(2, 2)[0]).toBe('2 * 2 = 4');
+    });
+
+    it('should return 2 line when start is 2 and end is 3', () => {
+        let multiplicationTable = generateMultiplicationTable(2, 3);
+        expect(multiplicationTable.length).toBe(2);
+        expect(multiplicationTable[0]).toBe('2 * 2 = 4');
+        expect(multiplicationTable[1]).toBe('2 * 3 = 6 3 * 3 = 9');
+    });
+});
 
