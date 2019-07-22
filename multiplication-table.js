@@ -31,10 +31,19 @@ function printMultiplicationTable(multiplicationTable) {
     console.log(multiplicationTable.join('\n'));
 }
 
+function createMultiplicationTable(start, end) {
+    if(isValidMultiplicationPara(start, end)) {
+        printMultiplicationTable(generateMultiplicationTable(start, end));
+    } else {
+        console.log('invalid start and end')
+    }
+}
+
 module.exports = {
     isValidStartEnd,
     isValidNumber,
     isValidMultiplicationPara,
     generateMultiplicationTable,
-    printMultiplicationTable
+    printMultiplicationTable,
+    createMultiplicationTable
 };

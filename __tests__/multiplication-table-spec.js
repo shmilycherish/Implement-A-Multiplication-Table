@@ -1,5 +1,5 @@
 const {isValidStartEnd, isValidNumber, isValidMultiplicationPara,
-    generateMultiplicationTable, printMultiplicationTable
+    generateMultiplicationTable, printMultiplicationTable, createMultiplicationTable
 } = require('../multiplication-table');
 
 describe('test start should less than or equal end', () => {
@@ -88,4 +88,26 @@ describe('print multiplication table', () => {
         expect(console.log).toHaveBeenCalledWith(expectText);
     });
 });
+
+
+describe('print multiplication table', () => {
+
+
+    it('should print multiplication table when valid input', () => {
+        spyOn(console, 'log');
+        const expectText = `2 * 2 = 4
+2 * 3 = 6 3 * 3 = 9
+2 * 4 = 8 3 * 4 = 12 4 * 4 = 16`;
+        createMultiplicationTable(2, 4);
+        expect(console.log).toHaveBeenCalledWith(expectText);
+    });
+
+    it('should print error when get invalid  input', () => {
+        spyOn(console, 'log');
+        createMultiplicationTable(4, 2);
+        const expectText = `invalid start and end`;
+        expect(console.log).toHaveBeenCalledWith(expectText);
+    });
+});
+
 
