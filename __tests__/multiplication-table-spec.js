@@ -1,4 +1,6 @@
-const {isValidStartEnd, isValidNumber, isValidMultiplicationPara, generateMultiplicationTable} = require('../multiplication-table');
+const {isValidStartEnd, isValidNumber, isValidMultiplicationPara,
+    generateMultiplicationTable, printMultiplicationTable
+} = require('../multiplication-table');
 
 describe('test start should less than or equal end', () => {
     it('should return true when start less than end', () => {
@@ -66,6 +68,24 @@ describe('test generateMultiplicationTable', () => {
         expect(multiplicationTable.length).toBe(2);
         expect(multiplicationTable[0]).toBe('2 * 2 = 4');
         expect(multiplicationTable[1]).toBe('2 * 3 = 6 3 * 3 = 9');
+    });
+});
+
+describe('print multiplication table', () => {
+
+
+    it('should print in one line when start and end are both 2', () => {
+        spyOn(console, 'log');
+        printMultiplicationTable(['2 * 2 = 4']);
+        expect(console.log).toHaveBeenCalledWith('2 * 2 = 4');
+    });
+
+    it('should print 2 lines when start is 2 and end is 3', () => {
+        spyOn(console, 'log');
+        printMultiplicationTable(['2 * 2 = 4', '2 * 3 = 6 3 * 3 = 9']);
+        const expectText = `2 * 2 = 4
+2 * 3 = 6 3 * 3 = 9`;
+        expect(console.log).toHaveBeenCalledWith(expectText);
     });
 });
 

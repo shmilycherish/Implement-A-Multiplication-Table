@@ -27,9 +27,14 @@ function generateMultiplicationTable(start, end) {
     return multiplicationTable;
 }
 
+function printMultiplicationTable(multiplicationTable) {
+    console.log(multiplicationTable.join('\n'));
+}
+
 module.exports = {
     isValidStartEnd,
     isValidNumber,
     isValidMultiplicationPara,
-    generateMultiplicationTable
+    generateMultiplicationTable,
+    printMultiplicationTable
 };
